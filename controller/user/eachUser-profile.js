@@ -5,5 +5,4 @@ export const findUserProfile = async (req, res) => {
   const user = req.params.user;
   const theUser = await userModel.findById(user);
   res.status(200).json(theUser);
-  console.log("hi");
 };
