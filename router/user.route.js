@@ -1,0 +1,14 @@
+import express from "express";
+import { login } from "../controller/user/user.login.js";
+import { signup } from "../controller/user/user.signup.js";
+import { followToggle } from "../controller/user/follow-user.js";
+import { authMiddleware } from "../middleware/auth-middleware.js";
+import { findUserProfile } from "../controller/user/eachUser-profile.js";
+import { findUser } from "../controller/user/userInput.find.js";
+const userRouter = express.Router();
+userRouter.post("/login", login);
+userRouter.post("/signup", signup);
+userRouter.post("/followToggle/:followedUserId", authMiddleware, followToggle);
+userRouter.post("/pro/:user", authMiddleware, findUserProfile);
+userRouter.get("/users/:input", authMiddleware, findUser);
+export default userRouter;

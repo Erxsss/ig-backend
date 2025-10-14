@@ -1,0 +1,14 @@
+import express from "express";
+import { createPost } from "../controller/post/post.create.js";
+import { findPost } from "../controller/post/post.find.js";
+import { authMiddleware } from "../middleware/auth-middleware.js";
+import { findUserPost } from "../controller/post/post.user.js";
+import { toggleLike } from "../controller/post/post.like.js";
+import { findUserPosts } from "../controller/post/findUser.post.js";
+const postRouter = express.Router();
+postRouter.post("/create", authMiddleware, createPost);
+postRouter.get("/posts", authMiddleware, findPost);
+postRouter.get("/userPosts", authMiddleware, findUserPost);
+postRouter.post("/postLike/:postId", authMiddleware, toggleLike);
+postRouter.get("/postUser/:userId", authMiddleware, findUserPosts);
+export default postRouter;
