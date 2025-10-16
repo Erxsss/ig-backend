@@ -1,0 +1,12 @@
+import { commentModel } from "../../comment.schema.js";
+
+export const createComment = async (req, res) => {
+  const userId = req.user._id;
+  const { postId, comment } = req.body;
+  const createdCom = await commentModel.create({
+    user: userId,
+    post: postId,
+    comment,
+  });
+  res.status(200).json(createdCom);
+};
