@@ -1,4 +1,5 @@
 import { commentModel } from "../../comment.schema.js";
+import { postModel } from "../../post.schema.js";
 
 export const createComment = async (req, res) => {
   const userId = req.user._id;
