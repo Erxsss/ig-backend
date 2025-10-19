@@ -8,5 +8,5 @@ export const findComments = async (req, res) => {
     })
     .populate("post")
     .populate("user");
-  res.status(200).json(comments);
+  res.status(200).json(comments, { long: comments.length });
 };
