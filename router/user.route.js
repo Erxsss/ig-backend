@@ -12,5 +12,5 @@ userRouter.post("/signup", signup);
 userRouter.post("/followToggle/:followedUserId", authMiddleware, followToggle);
 userRouter.post("/pro/:user", authMiddleware, findUserProfile);
 userRouter.get("/users/:input", authMiddleware, findUser);
-userRouter.post("/editUser", authMiddleware, editUser);
+userRouter.post("/edit", authMiddleware, editUser);
 export default userRouter;
