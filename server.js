@@ -12,7 +12,7 @@ app.use(cors());
 const port = 5555;
 const connectToDB = () => {
   mongoose.connect(
-    "mongodb+srv://erkhes:Erkhes$$$210218%40%40%40@mycluster.wn3eplw.mongodb.net/"
+    ""
   );
 };
 connectToDB();
